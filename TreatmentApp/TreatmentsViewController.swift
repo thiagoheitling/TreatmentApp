@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  FirstViewController.swift
 //  TreatmentApp
 //
 //  Created by Thiago Heitling on 2017-03-10.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class TreatmentsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
