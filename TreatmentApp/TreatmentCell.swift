@@ -80,10 +80,17 @@ class TreatmentCell: UITableViewCell {
         treatmentUnit.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1/4).isActive = true
     }
     
-    func configure() {
+    func configure(with treatment: Treatment) {
         
-        treatmentName.text = "Jogging"
-        treatmentAmount.text = "1200"
-        treatmentUnit.text = "minute"
+        treatmentName.text = treatment.name ?? "no data"
+        
+        if let amount = treatment.amount {
+            treatmentAmount.text = "\(amount)"
+        }
+        else {
+            treatmentAmount.text = "no data"
+        }
+        
+        treatmentUnit.text = treatment.unit ?? "no data"
     }
 }
