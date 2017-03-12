@@ -42,6 +42,7 @@ class BodyViewController: UIViewController {
         
         if joint.currentBackgroundImage == nil {
             joint.setBackgroundImage(UIImage(named:"JointButton"), for: .normal)
+            animateButton(with: joint)
         }
         else {
             joint.setBackgroundImage(nil, for: .normal)
@@ -57,5 +58,17 @@ class BodyViewController: UIViewController {
         }
     }
     
+    func animateButton(with joint: UIButton) {
+        
+        UIView.animate(withDuration: 0.05, animations: {
+            
+            joint.transform = .init(scaleX: 1.2, y: 1.2)
+        }) { _ in
+            
+            UIView.animate(withDuration: 0.05) {
+                joint.transform = .identity
+            }
+        }
+    }
 }
 
