@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class ContentManager {
     
@@ -14,12 +15,16 @@ class ContentManager {
     
     private let urlString = "http://159.203.62.239:3000/treatment.json"
     
-    private init() {} //This prevents others from using the default '()' initializer for this class.
+    private init() {}   //This prevents others from using the default '()' initializer for this class.
 
-    func loadTreatments(completion: @escaping (_ treatments: [Treatment], _ error: NSError?) -> Void) {
+    func fetchTreatments(completion: @escaping (_ treatments: [Treatment], _ error: NSError?) -> Void) {
         
-        // TODO: Try to load from local data, if data exists
-        
+        // Try to load treatments from local store, if data exists
+        if let storedTreatments = fetchFromLocalStorage() {
+            
+            completion(storedTreatments, nil)
+            return
+        }
         
         // Otherwise, download from remote server
         
@@ -62,11 +67,74 @@ class ContentManager {
                     }
                 
                 completion(treatments, nil)
+                
+                self.saveItemsToLocalStorageInBackground(with: treatments)
             }
             catch {
-                print("JSON  error: \(error)")
+                print("[CONTENT_MANAGER] JSON  error: \(error)")
             }
-            
         }.resume()
+    }
+    
+    func saveItemsToLocalStorageInBackground(with treatments: [Treatment]) {
+        
+        DispatchQueue(label: "background").async {
+            
+            autoreleasepool {
+                
+                for each in treatments {
+                    
+                    let treatmentObject = TreatmentObject()
+                    treatmentObject.id = NSUUID().uuidString
+                    treatmentObject.name = each.name
+                    treatmentObject.amount = each.amount
+                    treatmentObject.unit = each.unit
+                    
+                    do {
+                        
+                        let realm = try Realm()
+                        try realm.write {
+                            
+                            realm.add(treatmentObject)
+                            print("[CONTENT_MANAGER] treatmentObject saved to Realm in saveItemsToLocalStorageInBackground()")
+                        }
+                        
+                    } catch let error as NSError {
+                        
+                        print("[CONTENT_MANAGER] error saving to Realm: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
+    }
+    
+    func fetchFromLocalStorage() -> [Treatment]? {
+        
+        do {
+            
+            let realm = try Realm()
+            let treatmentsObjects = realm.objects(TreatmentObject.self)
+            return treatmentsObjects.count > 0 ? fetchTreatmentsFromStoredItems(with: treatmentsObjects) : nil
+        }
+        catch let error as NSError {
+            
+            print("[CONTENT_MANAGER] error loading from Realm: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
+    func fetchTreatmentsFromStoredItems(with treatmentsObjects: Results<TreatmentObject>) -> [Treatment] {
+        
+        var treatments = [Treatment]()
+        var treatment = Treatment()
+
+        for treatmentObject in treatmentsObjects {
+            
+            treatment = Treatment(managedObject: treatmentObject)
+            treatments.append(treatment)
+            print("[CONTENT_MANAGER] treatment fetched in getTreatmentsFromStoredItems()")
+        }
+        
+        return treatments
     }
 }

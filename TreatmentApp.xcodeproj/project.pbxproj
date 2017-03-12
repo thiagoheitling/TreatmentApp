@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A9A68E99BFD90AC17026A7E /* Pods_TreatmentApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C51100C2FD0F6167C6DFB7D /* Pods_TreatmentApp.framework */; };
+		D0122D691E750804007C0673 /* TreatmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0122D681E750804007C0673 /* TreatmentObject.swift */; };
+		D0122D6B1E750A2A007C0673 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0122D6A1E750A2A007C0673 /* Persistable.swift */; };
 		D09F4C261E732AA7005D950D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09F4C251E732AA7005D950D /* AppDelegate.swift */; };
 		D09F4C281E732AA7005D950D /* TreatmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09F4C271E732AA7005D950D /* TreatmentsViewController.swift */; };
 		D09F4C2A1E732AA7005D950D /* BodyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09F4C291E732AA7005D950D /* BodyViewController.swift */; };
@@ -21,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C51100C2FD0F6167C6DFB7D /* Pods_TreatmentApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreatmentApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7364221BD0B1700608FE0741 /* Pods-TreatmentApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreatmentApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TreatmentApp/Pods-TreatmentApp.release.xcconfig"; sourceTree = "<group>"; };
+		BD0ED9747FDB8F67F4A41FFC /* Pods-TreatmentApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreatmentApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TreatmentApp/Pods-TreatmentApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D0122D681E750804007C0673 /* TreatmentObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreatmentObject.swift; sourceTree = "<group>"; };
+		D0122D6A1E750A2A007C0673 /* Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
 		D09F4C221E732AA7005D950D /* TreatmentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreatmentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09F4C251E732AA7005D950D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D09F4C271E732AA7005D950D /* TreatmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentsViewController.swift; sourceTree = "<group>"; };
@@ -41,17 +49,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A9A68E99BFD90AC17026A7E /* Pods_TreatmentApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79106ED217DC68B385245D31 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C51100C2FD0F6167C6DFB7D /* Pods_TreatmentApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D09F4C191E732AA7005D950D = {
 			isa = PBXGroup;
 			children = (
 				D09F4C241E732AA7005D950D /* TreatmentApp */,
 				D09F4C231E732AA7005D950D /* Products */,
+				F5555A3FDAB41CEB867542CC /* Pods */,
+				79106ED217DC68B385245D31 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +90,9 @@
 				D09F4C3A1E732FBA005D950D /* Views */,
 				D09F4C3C1E732FD2005D950D /* ViewModels */,
 				D09F4C3B1E732FC1005D950D /* Controllers */,
-				D09F4C441E7337DB005D950D /* Helpers */,
 				D09F4C3D1E733009005D950D /* UI */,
 				D09F4C4D1E7386E8005D950D /* Server */,
+				D09F4C441E7337DB005D950D /* Helpers */,
 				D09F4C3E1E733036005D950D /* Assets */,
 				D09F4C3F1E73306E005D950D /* Supporting Files */,
 			);
@@ -84,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				D09F4C4B1E73820F005D950D /* Treatment.swift */,
+				D0122D681E750804007C0673 /* TreatmentObject.swift */,
+				D0122D6A1E750A2A007C0673 /* Persistable.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -154,6 +175,15 @@
 			name = Server;
 			sourceTree = "<group>";
 		};
+		F5555A3FDAB41CEB867542CC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BD0ED9747FDB8F67F4A41FFC /* Pods-TreatmentApp.debug.xcconfig */,
+				7364221BD0B1700608FE0741 /* Pods-TreatmentApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -161,9 +191,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D09F4C361E732AA7005D950D /* Build configuration list for PBXNativeTarget "TreatmentApp" */;
 			buildPhases = (
+				CF001E19321AA11A13A152AE /* [CP] Check Pods Manifest.lock */,
 				D09F4C1E1E732AA7005D950D /* Sources */,
 				D09F4C1F1E732AA7005D950D /* Frameworks */,
 				D09F4C201E732AA7005D950D /* Resources */,
+				92C230A68A3EB3258B4F5AD3 /* [CP] Embed Pods Frameworks */,
+				1BF23946A95B4B1003F4FDB2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -222,14 +255,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1BF23946A95B4B1003F4FDB2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TreatmentApp/Pods-TreatmentApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92C230A68A3EB3258B4F5AD3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TreatmentApp/Pods-TreatmentApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF001E19321AA11A13A152AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D09F4C1E1E732AA7005D950D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D09F4C2A1E732AA7005D950D /* BodyViewController.swift in Sources */,
+				D0122D691E750804007C0673 /* TreatmentObject.swift in Sources */,
 				D09F4C461E733807005D950D /* Extensions.swift in Sources */,
 				D09F4C261E732AA7005D950D /* AppDelegate.swift in Sources */,
+				D0122D6B1E750A2A007C0673 /* Persistable.swift in Sources */,
 				D09F4C431E733566005D950D /* TreatmentCell.swift in Sources */,
 				D09F4C4F1E738701005D950D /* ContentManager.swift in Sources */,
 				D09F4C281E732AA7005D950D /* TreatmentsViewController.swift in Sources */,
@@ -355,6 +438,7 @@
 		};
 		D09F4C371E732AA7005D950D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD0ED9747FDB8F67F4A41FFC /* Pods-TreatmentApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QJTG96F33N;
@@ -368,6 +452,7 @@
 		};
 		D09F4C381E732AA7005D950D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7364221BD0B1700608FE0741 /* Pods-TreatmentApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QJTG96F33N;

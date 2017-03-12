@@ -82,15 +82,8 @@ class TreatmentCell: UITableViewCell {
     
     func configure(with treatment: Treatment) {
         
-        treatmentName.text = treatment.name ?? "no data"
-        
-        if let amount = treatment.amount {
-            treatmentAmount.text = "\(amount)"
-        }
-        else {
-            treatmentAmount.text = "no data"
-        }
-        
-        treatmentUnit.text = treatment.unit ?? "no data"
+        treatmentName.text = treatment.name
+        treatmentAmount.text = "\(treatment.amount)"
+        treatmentUnit.text = treatment.unit
     }
 }

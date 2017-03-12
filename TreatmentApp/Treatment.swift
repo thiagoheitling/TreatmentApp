@@ -10,13 +10,31 @@ import Foundation
 
 struct Treatment {
     
-    var name: String?
-    var amount: Int?
-    var unit: String?
+    var id = "no data"
+    var name = "no data"
+    var amount = 0
+    var unit = "no data"
+}
+
+extension Treatment: Persistable {
     
-    init() {
-        name = "name"
-        amount = 0
-        unit = "unit"
+    // MARK: Persistable protocol
+    public init(managedObject: TreatmentObject) {
+        
+        id = managedObject.id
+        name = managedObject.name
+        amount = managedObject.amount
+        unit = managedObject.unit
+    }
+    
+    public func managedObject() -> TreatmentObject {
+        
+        let treatment = TreatmentObject()
+        treatment.id = id
+        treatment.name = name
+        treatment.amount = amount
+        treatment.unit = unit
+        
+        return treatment
     }
 }

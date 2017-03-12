@@ -27,7 +27,7 @@ class TreatmentsViewModel: NSObject, UITableViewDelegate, UITableViewDataSource 
     
     func loadTreatments() {
         
-        contentManager.loadTreatments { (treatments, error) in
+        contentManager.fetchTreatments { (treatments, error) in
             
             if error != nil {
                 

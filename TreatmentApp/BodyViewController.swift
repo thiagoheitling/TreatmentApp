@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  BodyViewController.swift
 //  TreatmentApp
 //
 //  Created by Thiago Heitling on 2017-03-10.

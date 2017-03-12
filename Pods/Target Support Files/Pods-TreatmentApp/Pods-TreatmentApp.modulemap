@@ -1,0 +1,6 @@
+framework module Pods_TreatmentApp {
+  umbrella header "Pods-TreatmentApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
